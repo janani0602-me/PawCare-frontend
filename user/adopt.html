@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adopt Pets – PawCare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+  <div class="float-paw fp-1">🐾</div>
+  <div class="float-circle fc-1"></div>
+  <nav class="user-navbar" id="userNav"></nav>
+
+  <section class="container">
+    <div class="page-heading">
+      <h1>Find a Pet to Adopt</h1>
+      <p>Browse our verified pets and find your perfect companion.</p>
+    </div>
+
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="🔍 Search by name..." oninput="renderAdoptGrid()">
+      <select id="filterType" onchange="renderAdoptGrid()">
+        <option value="all">All Types</option>
+        <option value="Dog">Dog</option>
+        <option value="Cat">Cat</option>
+        <option value="Rabbit">Rabbit</option>
+        <option value="Bird">Other</option>
+      </select>
+      <select id="filterAge" onchange="renderAdoptGrid()">
+        <option value="all">All Ages</option>
+        <option value="baby">Puppy/Kitten</option>
+        <option value="young">Young (1-3y)</option>
+        <option value="adult">Adult (3y+)</option>
+      </select>
+      <select id="filterGender" onchange="renderAdoptGrid()">
+        <option value="all">All Genders</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <select id="filterLocation" onchange="renderAdoptGrid()">
+        <option value="all">All Locations</option>
+        <option value="Chennai">Chennai</option>
+        <option value="Coimbatore">Coimbatore</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Chengalpattu">Chengalpattu</option>
+      </select>
+    </div>
+
+    <div class="result-count" id="adoptCount"></div>
+    <div class="pet-grid" id="adoptGrid"></div>
+  </section>
+
+  <footer class="user-footer">
+    <div class="footer-copy">© 2026 PawCare. All rights reserved.</div>
+  </footer>
+
+  <script src="../shared/storage.js"></script>
+  <script src="js/user.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initAdopt);</script>
+</body>
+</html>

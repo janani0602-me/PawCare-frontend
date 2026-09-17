@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login – PawCare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">
+        <div class="logo-mark">🐾</div>
+        <h1>PawCare</h1>
+        <p>Find a Friend. Give a Home.</p>
+      </div>
+
+      <h2 style="margin-bottom:1.2rem;text-align:center">Welcome Back</h2>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="••••••" required>
+        </div>
+        <div class="remember-row">
+          <label style="display:flex;align-items:center;gap:6px;font-weight:400">
+            <input type="checkbox" style="width:auto"> Remember me
+          </label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg">Login</button>
+      </form>
+
+      <div class="auth-switch">
+        New to PawCare? <a href="register.html">Create an account</a>
+      </div>
+      <div class="auth-switch" style="font-size:.8rem;margin-top:.5rem">
+        <a href="../admin/login.html"><i class="fas fa-user-shield"></i> Admin Login</a>
+      </div>
+      <div style="text-align:center;margin-top:1rem;font-size:.78rem;color:var(--secondary);background:var(--light-blue);padding:.6rem;border-radius:10px">
+        Demo: <strong>user@pawcare.com</strong> / <strong>1234</strong>
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared/storage.js"></script>
+  <script src="js/user.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initLogin);</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works – PawCare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+  <div class="float-paw fp-1">🐾</div>
+  <nav class="user-navbar" id="userNav"></nav>
+
+  <section class="container section">
+    <div class="page-heading">
+      <h1>How It Works</h1>
+      <p>Six simple steps from browsing to bringing your new friend home.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card reveal"><div class="step-number">01</div><h3>Browse Pets</h3><p>Explore verified pets on our Adopt page.</p></div>
+      <div class="step-card reveal"><div class="step-number">02</div><h3>View Pet Details</h3><p>Read about their personality, health, and story.</p></div>
+      <div class="step-card reveal"><div class="step-number">03</div><h3>Submit Request</h3><p>Fill a short adoption form.</p></div>
+      <div class="step-card reveal"><div class="step-number">04</div><h3>Admin Reviews</h3><p>Our team verifies and processes your request.</p></div>
+      <div class="step-card reveal"><div class="step-number">05</div><h3>Request Approved</h3><p>You'll be notified once approved.</p></div>
+      <div class="step-card reveal"><div class="step-number">06</div><h3>Welcome Home ❤️</h3><p>Bring your new companion home!</p></div>
+    </div>
+  </section>
+
+  <footer class="user-footer">
+    <div class="footer-copy">© 2026 PawCare. All rights reserved.</div>
+  </footer>
+
+  <script src="../shared/storage.js"></script>
+  <script src="js/user.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      renderUserNavbar('how');
+      triggerReveal();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Requests – PawCare</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/user.css">
+</head>
+<body>
+  <nav class="user-navbar" id="userNav"></nav>
+
+  <section class="container section">
+    <div class="page-heading">
+      <h1>My Adoption Requests</h1>
+      <p>Track the status of your applications.</p>
+    </div>
+    <div id="myRequests"></div>
+  </section>
+
+  <footer class="user-footer">
+    <div class="footer-copy">© 2026 PawCare. All rights reserved.</div>
+  </footer>
+
+  <script src="../shared/storage.js"></script>
+  <script src="js/user.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initRequests);</script>
+</body>
+</html>

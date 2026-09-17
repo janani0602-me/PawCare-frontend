@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users – PawCare Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="admin-main">
+      <header class="admin-topbar" id="topbar"></header>
+      <main class="admin-content">
+        <div class="page-header">
+          <div><h1>Users</h1><p>Registered PawCare users</p></div>
+        </div>
+        <div class="card" style="padding:0">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Name</th><th>Email</th><th>Phone</th><th>Registered</th><th>Requests</th><th>Status</th><th></th></tr>
+              </thead>
+              <tbody id="usersTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="viewUserModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeAdminModal('viewUserModal')">&times;</button>
+      <div id="viewUserContent"></div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="../shared/storage.js"></script>
+  <script src="js/admin.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initAdminUsers);</script>
+</body>
+</html>

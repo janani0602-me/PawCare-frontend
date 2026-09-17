@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – PawCare Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="admin-main">
+      <header class="admin-topbar" id="topbar"></header>
+      <main class="admin-content">
+        <div class="page-header">
+          <div>
+            <h1>Dashboard</h1>
+            <p>Overview of the PawCare platform</p>
+          </div>
+        </div>
+
+        <div class="stats-grid" id="statsGrid"></div>
+
+        <div style="display:grid;grid-template-columns:2fr 1fr;gap:1.5rem;margin-bottom:1.5rem" id="dashRow">
+          <div class="card">
+            <div class="card-header"><h3>Recent Adoption Requests</h3><a href="requests.html">View all →</a></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Request ID</th><th>User</th><th>Pet</th><th>Date</th><th>Status</th></tr></thead>
+                <tbody id="recentRequests"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Adoption Stats</h3></div>
+            <div id="adoptionChart"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h3>Recently Added Pets</h3><a href="pets.html">Manage →</a></div>
+          <div id="recentPets"></div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="../shared/storage.js"></script>
+  <script src="js/admin.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initAdminDashboard);</script>
+  <style>@media(max-width:900px){#dashRow{grid-template-columns:1fr!important}}</style>
+</body>
+</html>

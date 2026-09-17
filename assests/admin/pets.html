@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Pets – PawCare Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="admin-main">
+      <header class="admin-topbar" id="topbar"></header>
+      <main class="admin-content">
+        <div class="page-header">
+          <div><h1>Manage Pets</h1><p>Add, edit, and manage all pets</p></div>
+          <button class="btn btn-primary" onclick="openAddPetModal()"><i class="fas fa-plus"></i> Add Pet</button>
+        </div>
+
+        <div class="card" style="padding:0">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Image</th><th>Name</th><th>Breed</th><th>Age</th>
+                  <th>Gender</th><th>Location</th><th>Status</th><th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="petsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Add/Edit Pet Modal -->
+  <div class="modal-overlay" id="petModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeAdminModal('petModal')">&times;</button>
+      <h2 id="petModalTitle">Add Pet</h2>
+      <form id="petForm" onsubmit="savePetForm(event)">
+        <input type="hidden" id="petFormId">
+        <div class="form-row">
+          <div class="form-group"><label>Pet Name *</label><input type="text" id="pfName" required></div>
+          <div class="form-group"><label>Category *</label>
+            <select id="pfType" required>
+              <option value="Dog">Dog</option><option value="Cat">Cat</option>
+              <option value="Rabbit">Rabbit</option><option value="Bird">Bird</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Breed</label><input type="text" id="pfBreed"></div>
+          <div class="form-group"><label>Age *</label><input type="text" id="pfAge" placeholder="e.g., 2 Years" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Gender *</label>
+            <select id="pfGender" required><option>Male</option><option>Female</option></select>
+          </div>
+          <div class="form-group"><label>Location *</label>
+            <select id="pfLocation" required>
+              <option>Chennai</option><option>Coimbatore</option>
+              <option>Bangalore</option><option>Chengalpattu</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Vaccinated</label>
+            <select id="pfVaccinated"><option>Yes</option><option>No</option></select>
+          </div>
+          <div class="form-group"><label>Health Status</label><input type="text" id="pfHealth" placeholder="Healthy"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Temperament</label><input type="text" id="pfTemperament" placeholder="Friendly"></div>
+          <div class="form-group"><label>Status</label>
+            <select id="pfStatus">
+              <option value="Available">Available</option>
+              <option value="Pending Adoption">Pending Adoption</option>
+              <option value="Adopted">Adopted</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group"><label>Image URL</label><input type="url" id="pfImage" placeholder="https://..."></div>
+        <div class="form-group"><label>Description</label><textarea id="pfDescription"></textarea></div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Save Pet</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- View Pet Modal -->
+  <div class="modal-overlay" id="viewPetModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeAdminModal('viewPetModal')">&times;</button>
+      <div id="viewPetContent"></div>
+    </div>
+  </div>
+
+  <!-- Confirm Modal -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal" style="max-width:400px;text-align:center">
+      <h2 id="confirmTitle">Are you sure?</h2>
+      <p id="confirmMsg" style="color:var(--secondary);margin-bottom:1.5rem"></p>
+      <div style="display:flex;gap:.6rem;justify-content:center">
+        <button class="btn btn-outline" onclick="closeAdminModal('confirmModal')">Cancel</button>
+        <button class="btn btn-danger" id="confirmYes">Yes</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="../shared/storage.js"></script>
+  <script src="js/admin.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initAdminPets);</script>
+</body>
+</html>
