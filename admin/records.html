@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoption Records – PawCare Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="admin-main">
+      <header class="admin-topbar" id="topbar"></header>
+      <main class="admin-content">
+        <div class="page-header">
+          <div><h1>Adoption Records</h1><p>Completed adoptions history</p></div>
+        </div>
+        <div class="card" style="padding:0">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Adoption ID</th><th>Pet</th><th>Adopter</th><th>Date</th><th>Status</th><th>Contact</th><th></th></tr>
+              </thead>
+              <tbody id="recordsTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="viewRecordModal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeAdminModal('viewRecordModal')">&times;</button>
+      <div id="viewRecordContent"></div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="../shared/storage.js"></script>
+  <script src="js/admin.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initAdminRecords);</script>
+</body>
+</html>

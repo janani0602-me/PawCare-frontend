@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings – PawCare Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="admin-layout">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div class="admin-main">
+      <header class="admin-topbar" id="topbar"></header>
+      <main class="admin-content">
+        <div class="page-header">
+          <div><h1>Settings</h1><p>Manage platform preferences</p></div>
+        </div>
+
+        <div class="card" style="max-width:640px">
+          <h3 style="margin-bottom:1rem">General Settings</h3>
+          <form onsubmit="saveSettings(event)">
+            <div class="form-group"><label>Platform Name</label><input type="text" value="PawCare"></div>
+            <div class="form-group"><label>Contact Email</label><input type="email" value="hello@pawcare.in"></div>
+            <div class="form-group"><label>Contact Phone</label><input type="tel" value="+91 98765 43210"></div>
+            <button type="submit" class="btn btn-primary">Save Settings</button>
+          </form>
+        </div>
+
+        <div class="card" style="max-width:640px;border:1.5px solid #FEE2E2">
+          <h3 style="margin-bottom:.5rem;color:var(--danger)">Danger Zone</h3>
+          <p style="color:var(--secondary);font-size:.88rem;margin-bottom:1rem">This will permanently erase all pets, requests, users, and records.</p>
+          <button class="btn btn-danger" onclick="resetAllData()"><i class="fas fa-trash"></i> Reset All Data</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal" style="max-width:400px;text-align:center">
+      <h2 id="confirmTitle">Are you sure?</h2>
+      <p id="confirmMsg" style="color:var(--secondary);margin-bottom:1.5rem"></p>
+      <div style="display:flex;gap:.6rem;justify-content:center">
+        <button class="btn btn-outline" onclick="closeAdminModal('confirmModal')">Cancel</button>
+        <button class="btn btn-danger" id="confirmYes">Yes</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="../shared/storage.js"></script>
+  <script src="js/admin.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', initAdminSettings);</script>
+</body>
+</html>
